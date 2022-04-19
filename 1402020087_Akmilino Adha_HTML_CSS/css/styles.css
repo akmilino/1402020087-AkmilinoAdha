@@ -85,19 +85,31 @@ button.medium-header-fill{
   border: 1px solid rgb(3,172,14);
 }
 
-button.medium-header-fill-grey{
+button.medium-header-fill-green{
   width: 100px;
   height: 32px;
   padding: 0px 16px;
   font-weight: 800;
   border-radius: 8px;
   font-size: 12px;
-  background: #6C727C;
+  background: rgb(3,172,14);
   color: white;
   cursor: pointer;
-  border: 1px solid #6C727C;
+  border: 1px solid rgb(3,172,14);
 }
 
+button.medium-header-fill-black{
+  width: 100px;
+  height: 32px;
+  padding: 0px 16px;
+  font-weight: 800;
+  border-radius: 8px;
+  font-size: 12px;
+  background: #070808;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #070808;
+}
 a:hover.medium-header{
   color: green;
   text-decoration: none;

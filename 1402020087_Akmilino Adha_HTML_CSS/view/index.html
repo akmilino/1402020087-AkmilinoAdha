@@ -70,7 +70,7 @@
 
         <div class="row content">
             <div class="col-sm-6"" style="margin: 5px;">
-                <h3 style="padding-bottom: 15px;">Kategori Pilihan</h3>
+                <h3 style="padding-bottom: 15px;">Kategori opsi1</h3>
                 <div class="row">
                     <div class="col-sm-3 content">
                         <img src="../img/motor.png" width="100%">
@@ -89,10 +89,10 @@
             <div class="col-sm-5"" style="margin: 5px;">
                 <h3 style="padding-bottom: 15px;">Top Up dan Tagihan</h3>
                 <div class="row" style="text-align: center;">
-                    <div class="col-sm-3 content-nav">
+                    <div class="col-sm-3 content-nav" id="pool">
                         Pulsa
                     </div>
-                    <div class="col-sm-3 content-nav">
+                    <div class="col-sm-3 content-nav" id="paketkuota">
                         Paket
                     </div>
                     <div class="col-sm-3 content-nav">
@@ -107,19 +107,138 @@
                         <label for="">
                             Nomor Telpon
                         </label>
-                        <input type="text" class="pulsa" placeholder="0812345678">
+                        <input type="text" class="pulsa" placeholder="081357911" id="nomer">
                     </div>
                     <div class="col-sm-5">
                         <label for="">
                             Nominal
                         </label>
-                        <input type="text" class="pulsa" disabled>
+                        <!--input type="text" class="pulsa" disabled-->
+                        
+                        <select id="Harga1" class="pulsa" disabled>
+                            <option value="0">Pilih</option>
+                            <option value="1">Rp. 1.000</option>
+                            <option value="2">Rp. 3.000</option>
+                            <option value="3">Rp. 5.000</option>
+                            <option value="4">Rp. 10.000</option>
+                            <option value="5">Rp. 20.000</option>
+                            <option value="6">Rp. 25.000</option>
+                            <option value="7">Rp. 50.000</option>
+                            <option value="8">Rp. 100.000</option>
+                          </select>
+                          <select class="pulsa" id="kuotainternet" disabled hidden>
+                            <option value="0">Pilih Paket Data</option>
+                            <option value="1">Internet 10 GB - Rp. 30.500</option>
+                            <option value="2">Internet 15 GB - Rp. 43.000</option>
+                            <option value="3">Internet Combo Unlimited (Kuota Malam) - Rp. 20.000</option>
+                            <option value="4">Internet Combo Unlimited - Rp. 70.000</option>
+                        </select>
                     </div>
                     <div class="col-sm-2" style="margin-top: 25px;">
-                        <button class="medium-header-fill-grey">Beli</button>
+                        <button class="medium-header-fill-green" disabled id="buttonGreen">Beli</button>
+                        <button class="medium-header-fill-black" hidden id="buttonBlack">Beli</button>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+                $("#nomer").change(function(){
+                    if ($("#nomer").val() > 0) {
+                        $("#Harga1").prop("disabled", false);
+                        $("#kuotainternet").prop("disabled", false);
+                        alert("Nomor Telepon Anda adalah " + $("#nomer").val())
+                        
+                    }
+                    else {
+                        $("#Harga1").prop("disabled", true);
+                        $("#kuotainternet").prop("disabled", true);
+                        document.getElementById("#Harga1").value = "Pilih";
+                        document.getElementById("#kuotainternet").value = "Pilih Paket Data";
+                    }
+                    console.log($("#nomer").val())
+                });
+
+                $("#Harga1").change(function(){
+                    $("#buttonGreen").hide();
+                    $("#buttonBlack").show();
+                    $("#Harga1").show();
+                    
+                    $("#kuotainternet").hide();
+                });
+
+                $("#nomer").keypress(function(value) {
+                 if (value.which != 8 && value.which != 0 && (value.which < 48 || value.which > 57)) {
+                return false;
+                }
+                });
+
+                $("#buttonBlack").click(function() {
+                const opsi1 = $("#Harga1").children("option:selected").text();
+                if (opsi1 === "Pilih") {
+                    
+                } else {
+                    var ikura = opsi1.substring(4);
+                    var dolarindo = "";
+                    dolarindo = ikura === "1.000" ? "Rp. 4.000" : dolarindo;
+                    dolarindo = ikura === "3.000" ? "Rp. 6.000" : dolarindo;
+                    dolarindo = ikura === "5.000" ? "Rp. 8.000" : dolarindo;
+                    dolarindo = ikura === "10.000" ? "Rp. 12.000" : dolarindo;
+                    dolarindo = ikura === "20.000" ? "Rp. 22.000" : dolarindo;
+                    dolarindo = ikura === "25.000" ? "Rp. 27.000" : dolarindo;
+                    dolarindo = ikura === "50.000" ? "Rp. 52.000" : dolarindo;
+                    dolarindo = ikura === "100.000" ? "Rp. 102.000" : dolarindo;
+                    let deal = confirm("Pembelian pulsa sebesar " + opsi1 + " ke nomor " + $("#nomer").val());
+                    if (deal) {
+                        alert("Total harga pulsa " + dolarindo + " ke nomor " + $("#nomer").val() + " sedang di proses. Terima kasih ");
+                    } else {
+
+                    }
+                }
+            });
+
+                $("#buttonBlack").click(function() {
+                    const opsi2 = $("#kuotainternet").children("option:selected").text();
+                    if (opsi2 === "Pilih Paket Data") {
+                    
+                    } else {
+                        let ikura = opsi2.substring(opsi2.length - 10);
+                        let deal2 = confirm("Pembelian paket data " + opsi2 + " ke nomor " + $("#nomer").val());
+                        if (deal2) {
+                            alert("Total harga paket data " + ikura + " ke nomor " + $("#nomer").val() + " sedang di proses. Terima kasih ");
+                        } else {
+
+                        }
+                    }
+                });
+            
+                        $("#paketkuota").click(function() {
+                            $("#Harga1").hide();
+                            $("#Harga1").prop("disabled", true);
+                            $("#kuotainternet").prop("hidden", false);
+                            $("#kuotainternet").show();
+                            });
+                        $("#pool").click(function() {
+                            $("#Harga1").show();
+                        $("#kuotainternet").hide();
+                            });
+                               
+                        $("#kuotainternet").change(function() {
+                        const opsi1 = $("#kuotainternet").children("option:selected").text();
+                        if (opsi1 != "Pilih") {
+                            $("#buttonGreen").hide();
+                            $("#buttonBlack").prop("hidden", false);
+                            $("#buttonBlack").prop("disabled", false);
+                            $("#buttonBlack").show();
+                        }else{
+                            $("#buttonGreen").show();  
+                            $("#buttonBlack").prop("hidden", true);
+                            $("#buttonBlack").prop("disabled", true);
+                            $("#buttonBlack").hide();
+                        }
+                    });
+                    });
+                    </script>
+                    
     </body>
 </html>
