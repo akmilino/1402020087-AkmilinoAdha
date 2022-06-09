@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belanja kuy</title>
+    <!-- Custom CSS -->    
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery CDN -->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/d027480c9c.js" crossorigin="anonymous" defer></script> 
+    <!-- Custom JS -->   
+    <script src="./shop.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="main-header">
+        
+        
+        <nav class="navbar navbar-expand-lg px-4">
+            <!-- Brand Logo -->
+            <a href="#main-header" class="navbar-brand"> 
+                <img src="./imgs/icons/keranjang.svg" class="img-fluid" alt="main logo"/>
+            </a>
+            <!-- info item -->
+            <div class="nav-main-info d-lg-flex mx-lg-5">
+                <!-- nomor telepon -->
+                <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+                    <span class="d-none d-md-block info-icon mx-lg-3">
+                        <i class="fas fa-phone"></i>
+                    </span>
+                    <p class="d-none d-md-block mb-0">+6297433856xxx</p>
+                </div>
+                 <!-- Keranjang -->
+                 <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+                    <span class="cart-info-icon mx-2">
+                        <i class="fas fa-shopping-cart"></i>
+                    </span>
+                    <p class="d-none d-md-block text-capitalize mb-0">
+                        <span id="item-count">0</span> 
+                        items - Rp.
+                        <span class="item-total">0.000</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bagian tombol alih-->
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button> 
+                       
+            <!-- Bagian atas -->
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="navbar-nav text-capitalize mx-auto">
+                    <li class="nav-item active">
+                        <a href="#main-header" class="nav-link">home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#about" class="nav-link">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#products" class="nav-link">Produk</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#contact" class="nav-link">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+           
+            
+            
+        </nav>
+        
+        <!-- Bagian baner-->
+        <div class="container-fluid">
+            <div class="row banner justify-content-center align-items-center">
+                <div class="col-10 mx-auto banner-info text-center">
+                    <h1 class="text-capitalize">Selamat Datang DI <strong class="banner-title">Belanja kuy</strong></h1>
+                    <a href="#products" class="btn banner-link text-uppercase  my-2">Telursuri</a>
+                </div>
+
+            <!-- Buka keranjang -->
+            <div class="open-cart position-fixed" id="open-cart">
+        
+              
+
+            <!-- Total -->
+            <!--<div class="cart-total d-flex justify-content-around text-capitalize mt-5" >
+                <h5>total</h5>
+                <h5>Rp.<strong id="cart-total" class="font-weight-bold">0.00</strong></h5>
+            </div>*/-->
+
+            <!-- Tombol bukan keranjang -->
+           <div class="d-flex justify-content-between mt-3 text-uppercase">
+               <a href="#" class="btn btn-black cart-item-btn">checkout</a>
+                <a href="" class="btn btn-red cart-item-btn">clear cart</a>
+            </div>
+        </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Bagian Tentang Kami -->
+    <section id="about" class="about py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto col-md-6 my-5">
+                    <h2 class="text-capitalize">Tentang <strong class="banner-title">Kami</strong></h2>
+                    <p class="my-4 w-75 text-muted">Kami Menyediakan Barang Kebutuhan Sehari-hari</p>
+                    <a href="#products" class="btn btn-black text-uppercase">Telursuri</a>
+                </div>
+                <div class="col-10 mx-auto col-md-6 my-5">
+                    <div class="about-img-container">
+                        <img src="./imgs/display-img/all produk.jpg" alt="cooked rice" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Semua Produk-->
+    <section id="products">
+        <div class="container">
+           
+            <!-- Bagian judul -->
+            <div class="row">
+                <div class="col-10 mx-auto col-xs-6 text-center">
+                    <h2 class="text-capitalize">Produk <strong class="banner-title">kita</strong></h2>
+                </div>
+            </div>
+            
+            <!-- tombol sortir -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto d-flex justify-content-around sortBtn flex-wrap">
+                    <a href="#" class="btn btn-black text-uppercase filter-btn m-2"  data-filter="all">Semua</a>
+                    <a href="#" class="btn btn-black text-uppercase filter-btn m-2"  data-filter="all">Electronik</a>
+                    <a href="#" class="btn btn-black text-uppercase filter-btn m-2"  data-filter="all">Funiture</a>
+                    <a href="#" class="btn btn-black text-uppercase filter-btn m-2"  data-filter="all">Makanan</a>
+                </div>
+            </div>
+            
+            <!-- Pencarian -->
+            <div class="row">
+                <div class="col-10 mx-auto col-md-6">
+                    <form action="">
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text search-box">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" id="search-item" class="form-control" placeholder="Cari Produk....">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bagian Produk -->
+        <div class="container">
+            <div class="row product-items py-5" id="product-items">
+
+                <!-- Produk 1 -->
+                <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 product-item food-item" data-item="food-item">
+                    <div class="card single-item">
+                        <div class="img-container">
+                            <img src="./imgs/display-img/elektronik.jpg" alt="Rice Meal 1" class="card-img-top product-img">
+                            <span class="product-item-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text d-flex justify-content-between text-capitalize">
+                                <h5 id="product-item-name">Elektronik</h5>
+                                <h5 class="product-item-value">Rp.<strong id="store-item-price" class="font-weight-bold">20,000</strong></h5>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- Produk 2 -->
+                <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 product-item food-item" data-item="food-item">
+                <div class="card single-item">
+                    <div class="img-container">
+                        <img src="./imgs/display-img/funiture.jpg" alt="Rice Meal 2" class="card-img-top product-img">
+                        <span class="product-item-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text d-flex justify-content-between text-capitalize">
+                            <h5 id="product-item-name">Funiture</h5>
+                            <h5 class="product-item-value">Rp.<strong id="store-item-price" class="font-weight-bold">50,000</strong></h5>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+                    
+                <!-- Produk 3 -->
+                <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 product-item food-item" data-item="food-item">
+                <div class="card single-item">
+                    <div class="img-container">
+                        <img src="./imgs/display-img/makanan.jpg" alt="Rice Meal 3" class="card-img-top product-img">
+                        <span class="product-item-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text d-flex justify-content-between text-capitalize">
+                            <h5 id="product-item-name">Makanan</h5>
+                            <h5 class="product-item-value">Rp.<strong id="store-item-price" class="font-weight-bold">15,000</strong></h5>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Bagian Layanan -->
+    <section id="services" class="services py-5">
+        <div class="container">
+            <div class="row">
+
+                <!-- Layanan 1 -->
+                <div class="col-md-4 text-center my-3">
+                    <img class="service-icon" src="./imgs/icons/berkualitas.svg" alt="Natural Plant Icon">
+                    <h5 class="text-uppercase my-3 service-title">Barang Berkualitas</h5>
+                    <p class="w-75 mx-auto text-center service-text">
+                        Produk kami terbuat dari bahan-bahan berkualitas
+                    </p>
+                </div>
+
+                <!-- Layanan 2 -->
+                <div class="col-md-4 text-center my-3">
+                    <img class="service-icon" src="./imgs/icons/harga murah.svg" alt="Home Cooked Food Icon">
+                    <h5 class="text-uppercase my-3 service-title">Harga Murah</h5>
+                    <p class="w-75 mx-auto text-center service-text">
+                        Produk kami Memiliki Harga termurah
+                </div>
+
+                <!-- Layanan 3 -->
+                <div class="col-md-4 text-center my-3">
+                    <img class="service-icon" src="./imgs/icons/produk-bagus.svg" alt="Meal Icon">
+                    <h5 class="text-uppercase my-3 services-hero.jpgtitle">Produk Bagus</h5>
+                    <p class="w-75 mx-auto text-center service-text">
+                        Di tempat kami sudah murah berkualitas bagus lagi 
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sosial media -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 footer-title py-5">
+                    <h1 class="text-capitalize banner-title text-center"><strong>Belanja Kuy</strong></h1>
+                    <div class="footer-icons mt-3 d-flex justify-content-center align-items-center flex-wrap flex-column">
+                        <a href="#" class="footer-icon p-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer-icon p-2">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="footer-icon p-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-icon p-2">
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Kontak kami -->
+                <div class="col-md-6 footer-contact text-center text-capitalize p-5">
+                    <form>
+                        <fieldset class="text-capitalize">
+                          <legend >Kontak kami</legend>
+                          <div class="form-group">
+                            <label for="input-email">Email address</label>
+                                <input type="email" class="form-control" id="input-email"  placeholder="Masukan email">
+                                <p id="email-help" class="form-text">Kami tidak akan pernah membagikan email Anda kepada orang lain.</p>
+                          </div>                          
+                          <div class="form-group">
+                                <label for="input-text">Pesan Anda</label>
+                                <textarea class="form-control" id="input-text" rows="5" placeholder="Masukan Pesan Anda message"></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-black">
+                              <span class="btn-font">Kirim</span>
+                            </button>
+                        </fieldset>
+                      </form>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>
